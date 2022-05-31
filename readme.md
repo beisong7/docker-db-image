@@ -18,5 +18,5 @@ the code below sets the default password to 'password' so you might want to chan
 
 
 ```bash
-docker run -e MYSQL_ROOT_PASSWORD=password -p 4001:3306 my_db
+docker run -e MYSQL_ROOT_PASSWORD=password -d -p 4001:3306 my_db
 ```
