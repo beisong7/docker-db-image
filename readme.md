@@ -6,8 +6,9 @@ https://eloquentcode.com/create-a-mysql-docker-container-with-a-predefined-datab
 
 to build the image, rund the code
 
+```bash
+  docker build -t my_db .
 ```
-docker build -t my_db .
 
 
 To run the image on a container port eg 4001, use the code below
@@ -16,5 +17,6 @@ the code below sets the default password to 'password' so you might want to chan
 
 
 
-```
+```bash
 docker run -e MYSQL_ROOT_PASSWORD=password -p 4001:3306 my_db
+```
