@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  
+  my-db:
+    build:
+      context: "."
+    restart: always
+    container_name: my-db
+    volumes:
+      - my-db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    labels:
+      - traefik.enable=true
+      # HTTP router with redirect
+      - traefik.http.routers.my-db-http.entrypoints=web
+      - traefik.http.routers.my-db-http.rule=Host(`database.yourdomain.com`)
+
+networks:
+  default:
+    external:
+      name: proxy
+
+volumes:
+  my-db: {}
